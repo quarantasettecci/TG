@@ -65,13 +65,18 @@
         </div>
     </div>
 
-    <script>
-        // Script JavaScript per gestire l'interattività della MiniApp
-        document.querySelector('.like-button').addEventListener('click', function() {
-            // Logica per gestire il pulsante Like
-            // Puoi aggiungere qui la logica per fare qualcosa quando l'utente preme il pulsante Like
-            console.log('Like clicked');
-        });
+<script>
+    // Script JavaScript per gestire l'interattività della MiniApp
+    document.querySelector('.like-button').addEventListener('click', function() {
+        // Logica per gestire il pulsante Like
+        // Aggiungi qui la logica per far comparire la scritta "SIUM"
+        var likeFeedback = document.createElement("p");
+        likeFeedback.textContent = "SIUM";
+        document.body.appendChild(likeFeedback);
+        setTimeout(function() {
+            likeFeedback.remove();
+        }, 2000); // Rimuove la scritta dopo 2 secondi
+    });
 
         document.querySelector('.skip-button').addEventListener('click', function() {
             // Logica per gestire il pulsante Skip
