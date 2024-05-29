@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram MiniApp</title>
+    <title>Tinder MiniApp</title>
     <style>
+        /* Stili CSS per la MiniApp */
         body {
             font-family: Arial, sans-serif;
             display: flex;
@@ -14,29 +15,75 @@
             margin: 0;
             background-color: #f4f4f9;
         }
-        button {
+        .profile-container {
+            width: 300px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .profile-image {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .profile-info {
+            text-align: center;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .button {
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
             border: none;
-            background-color: #0088cc;
-            color: white;
             border-radius: 5px;
+        }
+        .like-button {
+            background-color: #4CAF50; /* Green */
+            color: white;
+        }
+        .skip-button {
+            background-color: #f44336; /* Red */
+            color: white;
         }
     </style>
 </head>
 <body>
-    <button id="sendMessage">Send Message to Bot</button>
-    <script>
-        const sendMessageButton = document.getElementById('sendMessage');
+    <div class="profile-container">
+        <img src="https://example.com/profile.jpg" alt="Profile Image" class="profile-image">
+        <div class="profile-info">
+            <h2>Name, Age</h2>
+            <p>Location</p>
+        </div>
+        <div class="button-container">
+            <button class="button like-button">Like</button>
+            <button class="button skip-button">Skip</button>
+        </div>
+    </div>
 
-        sendMessageButton.addEventListener('click', () => {
-            // Sending data to the bot
-            Telegram.WebApp.sendData("Hello, bot!"); // Replace this with actual data you want to send
+    <script>
+        // Script JavaScript per gestire l'interattività della MiniApp
+        document.querySelector('.like-button').addEventListener('click', function() {
+            // Logica per gestire il pulsante Like
+            // Puoi aggiungere qui la logica per fare qualcosa quando l'utente preme il pulsante Like
+            console.log('Like clicked');
         });
 
-        // Initializing the Web App
-        Telegram.WebApp.ready();
+        document.querySelector('.skip-button').addEventListener('click', function() {
+            // Logica per gestire il pulsante Skip
+            // Puoi aggiungere qui la logica per passare al profilo successivo
+            console.log('Skip clicked');
+        });
+
+        // Parte di Telegram.WebApp.ready per integrare la MiniApp con Telegram
+        Telegram.WebApp.onReady(function() {
+            // Definisci la funzione da chiamare quando la MiniApp è pronta per essere visualizzata
+            // Qui puoi eseguire eventuali inizializzazioni aggiuntive
+        });
     </script>
 </body>
 </html>
